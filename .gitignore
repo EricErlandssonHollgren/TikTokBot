@@ -1,6 +1,7 @@
 /config.ini
 video_files/
 audio_files/
+out_files/
 tmp/
 
 # Byte-compiled / optimized / DLL files
