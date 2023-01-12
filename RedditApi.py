@@ -11,24 +11,6 @@ def get_hot_posts(reddit,subreddit, limit=10):
         print("Downloading post: ", i+1, " of ", len(hot_posts),"...")
         post['content'] = _get_content(reddit,post['post_id'])
     return hot_posts
-
-def generate_content_file(reddit,hot_posts):
-    with open('./subtitles/.','w', encoding='UTF-8') as f: 
-        for i,post in enumerate(hot_posts):
-            print("Downloading post: ", i+1, " of ", len(hot_posts),"...")
-            triplets = _splitTextToTriplet(_get_content(reddit,post['post_id']))
-            '''minutes = 0
-            for j,triplet in enumerate(triplets):
-                f.write('\n')
-                f.write(f'{j+1}'+'\n')
-                if j < 10: 
-                    f.write(f'00:0{minutes}:0{j%60},000 --> 00:0{minutes}:0{(j+1)%60},000\n')
-                else:
-                    f.write(f'00:0{minutes}:{j%60},000 --> 00:0{minutes}:{(j+1)%60},000\n')
-                if j == 60:
-                    minutes += 1
-                f.write(triplet)
-                f.write('\n')'''
             
 
 def _splitTextToTriplet(string):

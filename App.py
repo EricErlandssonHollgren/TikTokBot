@@ -4,7 +4,7 @@ import json_parser as parser
 import tts_service as tts
 import video_service as video
 import sys
-
+import pyttsx3
 client_id = "client_id"
 client_secret = "client_secret"
 user_agent = "user_agent"
@@ -17,10 +17,10 @@ def init_config():
     user_agent = config['reddit']['user_agent']
     return client_id, client_secret, user_agent
 
-def generate_json_file():
+def generate_json_file(count):
     client_id,client_secret,user_agent = init_config()
     reddit = api.get_reddit_instance(user_agent, client_id, client_secret)
-    hot_posts = api.get_hot_posts(reddit, 'StoryTime', 2)
+    hot_posts = api.get_hot_posts(reddit, 'StoryTime', count)
     parser.parse_to_json(hot_posts)
 
 def generate_tts(id):
@@ -32,7 +32,10 @@ def generate_video(id,text):
 
 #TODO interesting chat gpt answers reddit?
 if __name__ == "__main__":
-        generate_json_file()
-        id = 0
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'generate':
+            generate_json_file(int(sys.argv[2]))
+        id = 4
         duration = generate_tts(id)
         generate_video(id, parser.get_content_from_json(id))
+        
