@@ -2,6 +2,7 @@
 video_files/
 audio_files/
 out_files/
+out_files/
 tmp/
 
 # Byte-compiled / optimized / DLL files
