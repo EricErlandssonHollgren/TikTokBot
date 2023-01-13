@@ -10,3 +10,17 @@ def get_content_from_json(id):
     for post in data:
         if post['id'] == id:
             return post['content']
+
+def get_90_content_from_json(id):
+    text_segments= []
+    with open('./json_data/data.json','r', encoding='UTF-8') as f:
+        data = json.load(f)
+    
+    for post in data:
+        if post['id'] == id:
+            return splitter(90, post['content'])
+             
+
+def splitter(n, s):
+    pieces = s.split()
+    return [" ".join(pieces[i:i+n]) for i in range(0, len(pieces), n)]
