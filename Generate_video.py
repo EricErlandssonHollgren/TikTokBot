@@ -44,8 +44,6 @@ def delete_audio_files():
         if os.path.isfile(file_path):
             os.remove(file_path)
 
-
-#TODO interesting chat gpt answers reddit?
 if __name__ == "__main__":
     id = 0
     if len(sys.argv) > 1:
