@@ -5,7 +5,13 @@ import tts_service as tts
 import video_service as video
 import sys
 import os
-
+'''
+********************************
+*    Console Line arguments    *
+-genjson [number of posts]     *
+-novid                         *
+********************************
+'''
 client_id = "client_id"
 client_secret = "client_secret"
 user_agent = "user_agent"
@@ -43,9 +49,9 @@ def delete_audio_files():
 if __name__ == "__main__":
     id = 0
     if len(sys.argv) > 1:
-        if sys.argv[1] == 'genjson':
+        if sys.argv[1] == '-genjson':
             generate_json_file(int(sys.argv[2]))
-        elif sys.argv[1] == 'novid':
+        elif sys.argv[1] == '-novid':
             mapping = generate_tts(id)
     else:
         mapping = generate_tts(id)
