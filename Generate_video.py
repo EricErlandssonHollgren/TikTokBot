@@ -45,7 +45,7 @@ def delete_audio_files():
             os.remove(file_path)
 
 if __name__ == "__main__":
-    id = 0
+    id = 1
     if len(sys.argv) > 1:
         if sys.argv[1] == '-genjson':
             generate_json_file(int(sys.argv[2]))

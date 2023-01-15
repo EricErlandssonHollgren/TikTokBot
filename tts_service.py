@@ -31,7 +31,7 @@ def _create_file(text, name):
     engine.setProperty('volume', 0.5)
 
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[0].id)
+    engine.setProperty('voice', voices[1].id)
     engine.save_to_file(text, './audio_files/'+name)
     engine.runAndWait()
     return engine.getProperty('rate') * len(text.split())
